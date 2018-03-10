@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Sinatra Project - TV Show Organizer"
-date:       2018-03-10 17:03:44 +0000
+date:       2018-03-10 12:03:45 -0500
 permalink:  sinatra_project_-_tv_show_organizer
 ---
 
@@ -32,7 +32,7 @@ If you update your shows, you are redirected to your user page where you can vie
 
 Clicking on a show brings you to the detail view of the show, where you can see the show name, year, and a description if provided. If logged in, a toolbar displays below the description that lets you mark a show as watched/unwatched, add or remove a show from your account, edit the show, or delete the show. Finally, you will be able to see a list of all the users who have added the show to their account.
 
-![Imgur](https://i.imgur.com/fV3MuRM.png)
+![Show Detail](https://i.imgur.com/fV3MuRM.png)
 
 You can also create a new show by clicking "New Show" in the top toolbar. You are brought to a form where you can enter a name, year, and optionally a description. You can click the checkbox to set whether the show is automatically added to your account upon creating the show as well.
 
