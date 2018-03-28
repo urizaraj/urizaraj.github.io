@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Food Frontier - A Rails Project"
-date:       2018-03-28 16:44:18 +0000
+date:       2018-03-28 12:44:18 -0400
 permalink:  food_frontier_-_a_rails_project
 ---
 
@@ -28,7 +28,7 @@ I used the devise gem for user authentication, and utilized its omniauth funtion
 
 One interesting thing I did was add a 'rating' column to the restaurants table - when browsing restaurants, I wanted to be able to see the average rating each restaurant's reviews. On the Restaurant model, I added an 'update rating' method that averages all of the review ratings and updates the restaurant:
 
-```
+```ruby
 def update_rating
  ratings = reviews.pluck(:rating)
  value = ratings.empty? ? 0 : (ratings.reduce(:+).to_f / ratings.size)
@@ -38,7 +38,7 @@ end
 
 Then, on the Review model, I added 'after_save' and 'after_destroy' callbacks to update the restaurant's rating:
 
-```
+```ruby
 after_save :update_restaurant_rating
 after_destroy :update_restaurant_rating
 
@@ -67,7 +67,7 @@ For user roles, I kept it simple and gave users a boolean attribute indicating w
 ### Styles
 The bootstrap gem makes customizing bootstrap really simple, which is what I did for this project. In the app/assets/stylesheets/application.scss file, I tweaked the theme colors, font, and a couple other things with just a few lines:
 
-```css
+```scss
 $font-family-base: 'Hind', sans-serif;
 $link-hover-decoration: none;
 $enable-rounded: false;
