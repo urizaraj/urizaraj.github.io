@@ -9,6 +9,8 @@ permalink:  choose_your_own_adventure
 
 For my Rails App with jQuery Front End project, I created a website where users can read stories with branching paths, create their own stories, and add new branches to existing stories.
 
+![View a Story](https://i.imgur.com/3cNWua0.png)
+
 ## Models
 
 This project consists of three models - `User`, `Story`, and `Branch`. The implementation of these models is interesting - a story has a starting branch **and** many branches, while each branch has a parent branch and many child branches. I implemented that relationship on the models like this:
