@@ -18,7 +18,7 @@ class Story < ApplicationRecord
   belongs_to :start_branch, class_name: 'Branch'
   belongs_to :user
   has_many :branches
-	
+
 	accepts_nested_attributes_for :start_branch
 	...
 end
@@ -50,16 +50,16 @@ This allows you to read an entire path of a story without reloading the page - y
 You can also seamlessly add new branches - a 'new branch' form is loaded as a part of the view. As you navigate through branches, instances of the branch model will update the 'branch_parent_id' field of the form to reflect what the current parent branch will be for a new branch. Javascript intercepts the default action for submitting the form and instead uses AJAX to submit the form to the server asynchronously. The response is then used to create a new Branch instance and its link is added to the page. You can see the code for this here:
 
 ```javascript
-    submitForm(event) {
-      event.preventDefault()
-      const values = form.serialize()
-      const resp = $.post(`/stories/${sid}/branches`, values)
-      resp.done(data => {
-        const branch = new Branch(data, this.curBranch)
-        branch.addLink()
-        form[0].reset()
-      })
-    }
+function submitForm(event) {
+	event.preventDefault()
+	const values = form.serialize()
+	const resp = $.post(`/stories/${sid}/branches`, values)
+	resp.done(data => {
+		const branch = new Branch(data, this.curBranch)
+		branch.addLink()
+		form[0].reset()
+	})
+}
 ```
 		
 Variables such as `form` and `sid` are constants that I declared beforehand using a closure - I defined my classes within a function and declared constants within that same function so that instances of my classes would be able to reference those variables. I used this technique to create constants for jQuery objects that I know could be used multiple times.
