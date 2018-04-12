@@ -9,13 +9,11 @@ permalink:  choose_your_own_adventure
 
 For my Rails App with jQuery Front End project, I created a website where users can read stories with branching paths, create their own stories, and add new branches to existing stories.
 
-![View a Story](https://imgur.com/3cNWua0)
-
 ## Models
 
 This project consists of three models - `User`, `Story`, and `Branch`. The implementation of these models is interesting - a story has a starting branch **and** many branches, while each branch has a parent branch and many child branches. I implemented that relationship on the models like this:
 
-```
+```ruby
 class Story < ApplicationRecord
   belongs_to :start_branch, class_name: 'Branch'
   belongs_to :user
@@ -26,7 +24,7 @@ class Story < ApplicationRecord
 end
 ```
 
-```
+```ruby
 class Branch < ApplicationRecord
   belongs_to :parent, class_name: 'Branch', optional: true
   has_many :branches, foreign_key: 'parent_id'
@@ -51,7 +49,7 @@ This allows you to read an entire path of a story without reloading the page - y
 
 You can also seamlessly add new branches - a 'new branch' form is loaded as a part of the view. As you navigate through branches, instances of the branch model will update the 'branch_parent_id' field of the form to reflect what the current parent branch will be for a new branch. Javascript intercepts the default action for submitting the form and instead uses AJAX to submit the form to the server asynchronously. The response is then used to create a new Branch instance and its link is added to the page. You can see the code for this here:
 
-```
+```javascript
     submitForm(event) {
       event.preventDefault()
       const values = form.serialize()
