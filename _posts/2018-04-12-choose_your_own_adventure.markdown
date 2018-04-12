@@ -1,11 +1,11 @@
 ---
 layout: post
 title:      "Choose Your Own Adventure"
-date:       2018-04-12 21:18:11 +0000
+date:       2018-04-12 17:18:12 -0400
 permalink:  choose_your_own_adventure
 ---
 
-Rails App with a jQuery Front End
+*A Rails App with a jQuery Front End project*
 
 For my Rails App with jQuery Front End project, I created a website where users can read stories with branching paths, create their own stories, and add new branches to existing stories.
 
