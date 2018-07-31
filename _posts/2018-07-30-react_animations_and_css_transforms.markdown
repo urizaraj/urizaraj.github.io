@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "React Animations and CSS Transforms"
-date:       2018-07-31 03:13:57 +0000
+date:       2018-07-30 23:13:58 -0400
 permalink:  react_animations_and_css_transforms
 ---
 
@@ -28,7 +28,7 @@ const ActionCardView = (props: Props) => {
           className={`message ${typeToColor[type]}`}
           onClick={() => onClick()}
         >
-          <div style={{ height: '100%' }} className="message-body">
+          <div style={ height: '100%' } className="message-body">
             <Level>
               <LevelLeft>
                 <LevelItem>
